@@ -1,0 +1,29 @@
+{
+  "name": "orderpulse",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Real-time order and transaction tracking SaaS demo (MongoDB, Express, Socket.IO, React).",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,magenta \"npm run dev -w server\" \"npm run dev -w client\"",
+    "dev:memory": "concurrently -n server,client -c blue,magenta \"npm run dev:memory -w server\" \"npm run dev -w client\"",
+    "seed": "npm run seed -w server",
+    "webhook:send": "npm run webhook:send -w server --",
+    "test": "npm test -w server",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w client",
+    "build": "npm run build -w server && npm run build -w client",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "concurrently": "^10.0.7",
+    "eslint": "^10.15.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.14.0",
+    "typescript-eslint": "^8.74.0"
+  }
+}
